@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head th:replace="mesFragments :: fragHead">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="vh-100">
+    <nav th:replace="mesFragments :: fragNav"></nav>
+    <main class="container">
+        <ul>
+            <li th:text="'Nom : '+ ${potion.nom}"></li>
+            <li th:text="'Description : '+${potion.description}"></li>
+            <li th:text="'Soin : '+${potion.soin}"></li>
+        </ul>
+    </main>
+</div>
+<footer th:replace="mesFragments :: fragFooter"></footer>
+</body>
+</html>

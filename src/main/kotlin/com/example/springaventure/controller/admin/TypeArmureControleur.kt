@@ -29,6 +29,13 @@ class TypeArmureControleur(
         val typeArmures = this.typeArmureDao.findAll()
         // Ajoute la liste des types d'armures au modèle pour transmission à la vue
         model.addAttribute("typeArmures", typeArmures)
+
+        // Calculer le nombre total de types d'armure
+        val nombreTotalTypesArmure = typeArmures.size
+        // Ajouter le nombre total au modèle pour transmission à la vue
+        model.addAttribute("nombreTotalTypesArmure", nombreTotalTypesArmure)
+
+
         return "admin/typeArmure/index"
     }
 

@@ -79,7 +79,7 @@ class CampagneControleur(
             val scoreParCombat = 50 // Points par combat (ajustez selon vos besoins)
 
             // Calcul du score en fonction du nombre de combats et du nombre de tours effectués
-            val score = nombreDeCombats * scoreParCombat - campagne.combats.sumOf { it.nbTour }
+            val score = nombreDeCombats * scoregit ParCombat - campagne.combats.sumOf { it.nbTour }
 
             // Mise à jour des statistiques de la campagne
             campagne.statut = "terminer"

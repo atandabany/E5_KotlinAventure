@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head th:replace="mesFragments :: fragHead">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="vh-100">
+    <nav th:replace="mesFragments :: fragNav"></nav>
+    <main class="container">
+        <div class="row col-10 col-sm-8 col-md-6 col-lg-4 mx-auto mt-3">
+
+            <form novalidate class="validation"  th:action="@{/admin/potion}" th:object="${nouvellePotion}" method="post">
+                <h2 class="mb-4">Ajouter une Potion</h2>
+                <!-- Input pour le nom de la potion -->
+                <div class="mb-3">
+                    <label for="nom" class="form-label">Nom de la Potion</label>
+                    <input required minlength="3" maxlength="255" type="text" class="form-control" id="nom" name="nom"  th:field="${nouvellePotion.nom}">
+                </div>
+
+                <!-- Input pour la description de la potion -->
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description de la Potion</label>
+                    <input required minlength="3" maxlength="255" type="text" class="form-control" id="description" name="description"  th:field="${nouvellePotion.description}">
+                </div>
+
+                <!-- Input pour le bonus de la potion -->
+                <div class="mb-3">
+                    <label for="soin" class="form-label">Bonus de la Potion</label>
+                    <input required min="0" max="99" type="number" class="form-control" id="soin" name="soin" th:field="${nouvellePotion.soin}">
+                </div>
+
+                <!-- Bouton de soumission -->
+                <button type="submit" class="btn btn-primary">Ajouter</button>
+            </form>
+        </div>
+    </main>
+</div>
+<footer th:replace="mesFragments :: fragFooter"></footer>
+<script src="/js/validation.js"></script>
+</body>
+</html>

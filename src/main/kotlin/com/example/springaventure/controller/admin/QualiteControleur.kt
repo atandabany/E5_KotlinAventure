@@ -2,6 +2,7 @@ package com.example.springaventure.controller.admin
 
 import com.example.springaventure.model.dao.QualiteDao
 import com.example.springaventure.model.entity.Qualite
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
@@ -24,9 +25,14 @@ class QualiteControleur(val qualiteDao: QualiteDao) {
      * @return Le nom de la vue à afficher.
      */
     @GetMapping("/admin/qualite")
-    fun index(model: Model): String {
+
+    //fun index(model: Model): String {
+
+        fun index(model: Model, pageable :Pageable): String { // => Pour la pagination
         // Récupère toutes les qualités depuis la base de données
-        val qualites = this.qualiteDao.findAll()
+        //val qualites = this.qualiteDao.findAll()
+
+        val qualites = this.qualiteDao.findAll1(pageable) // => Pour la pagination
 
         // Ajoute la liste des qualités au modèle pour affichage dans la vue
         model.addAttribute("qualites", qualites)
