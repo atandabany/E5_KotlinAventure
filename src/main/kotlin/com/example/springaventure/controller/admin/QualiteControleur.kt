@@ -37,6 +37,11 @@ class QualiteControleur(val qualiteDao: QualiteDao) {
         // Ajoute la liste des qualités au modèle pour affichage dans la vue
         model.addAttribute("qualites", qualites)
 
+        // Calculer le nombre total de types d'armure
+        val nombreTotalQualite = qualites.size
+        // Ajouter le nombre total au modèle pour transmission à la vue
+        model.addAttribute("nombreTotalQualite", nombreTotalQualite)
+
         // Retourne le nom de la vue à afficher
         return "admin/qualite/index"
     }

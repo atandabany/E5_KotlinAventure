@@ -46,6 +46,25 @@
             </tr>
             </tbody>
         </table>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Nombre armes</th>
+                <th>Pourcentage</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="uneQualite : ${qualites}">
+                <td th:text="${uneQualite.nom}"></td>
+                <td th:text="${uneQualite.armes.size()}"></td>
+                <td th:text="${(uneQualite.armes.size() * 100 / nombreTotalArme) + '%'}"></td>
+
+            </tr>
+            </tbody>
+        </table>
     </main>
 
 </div>

@@ -33,7 +33,12 @@ class ArmeControleur(
     @GetMapping("/admin/arme")
     fun index(model: Model): String {
         val armes = this.armeDao.findAll()
+        val qualites = this.qualiteDao.findAll()
+        val nombreTotalArme = armes.size
+        // Ajouter le nombre total au modèle pour transmission à la vue
+        model.addAttribute("nombreTotalArme", nombreTotalArme)
         model.addAttribute("armes", armes)
+        model.addAttribute("qualites", qualites)
         return "admin/arme/index"
     }
 
